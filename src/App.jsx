@@ -8,7 +8,7 @@ import './App.css'
 function Navbar({bgColor="bg-emerald-100"}) {
   const [dropdown, setDropdown] = useState(false);
   return (
-    <nav className={`${dropdown ? "min-h-screen bg-stone-700" : `min-h-0 ${bgColor}`} transition-all duration-500 ease-in-out fixed top-0 left-0 pl-6 pr-6 pt-4 w-full z-50`}>
+    <nav className={`${dropdown ? "min-h-screen bg-stone-700" : `min-h-0 ${bgColor}`} transition-all duration-1000 ease-in-out fixed top-0 left-0 pl-6 pr-6 pt-4 w-full z-50`}>
       <div className="container mx-auto flex justify-between">
         <div id="menu_icon" className={`items-center space-x-4 text-l`}>
           <img src='../icon-menu.png' alt='Menu Icon' className='h-4 w-4' onClick={()=>setDropdown(!dropdown)}/>
@@ -49,21 +49,21 @@ function App() {
   return (
     <div>
       <Navbar bgColor={cgpage ? "bg-emerald-200" : "bg-emerald-100"} />
-      <main className={`${cgpage ? "bg-emerald-200" : "bg-emerald-100"} transition-colors duration-2000 ease-in-out min-h-screen flex flex-col items-center pt-12 p-b-4`}>
+      <main className={`${cgpage ? "bg-emerald-200" : "bg-emerald-100"} transition-colors duration-1000 ease-in-out min-h-screen flex flex-col items-center pt-12 p-b-4`}>
         {/* <div className={`${cgpage ? "invisible" : "visible"} bg-stone-100/40 fixed left-0 w-200 h-100 mt-20 ml-10`}> */}
         <div
           className={`fixed left-10 w-200 h-100 mt-20 bg-stone-100/40 
                       transition-all duration-500 ease-in-out 
-                      ${cgpage ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"}`}
+                      ${cgpage ? "opacity-0 scale-95 pointer-events-none translate-x-40" : "opacity-100 scale-100 translate-x-0"}`}
         >
           <p className='mt-20 ml-10 text-7xl text-stone-700 text-left font-semibold'>
             Perfect solution in branding  and digital for ambitius leader
           </p>
         </div>
         <div
-          className={`fixed left-10 w-200 h-100 mt-20 bg-stone-100/40 
+          className={`fixed right-30 w-200 h-100 mt-20 bg-stone-100/40 
                       transition-all duration-500 ease-in-out 
-                      ${cgpage ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}
+                      ${cgpage ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-95 -translate-x-40 pointer-events-none"}`}
         >
           <p className='mt-20 ml-10 text-7xl text-stone-700 text-left font-semibold'>
             We are ready to help you, let us know what your problem
@@ -71,13 +71,13 @@ function App() {
         </div>
         <div className='fixed bg-transparent h-30 w-20 right-6 mt-55'>
           <button
-            onClick={()=>setCgpage(true)}
+            onClick={()=>setCgpage(false)}
             className="transform bg-emerald-200 rounded-full shadow-xl ease-out-in hover:animate-bounce"
           >
             &#10094; 
           </button>
           <button
-          onClick={()=>setCgpage(false)}
+          onClick={()=>setCgpage(true)}
             className="mt-6 transform bg-emerald-100 rounded-full shadow-xl ease-out-in hover:animate-bounce"
           >
             &#10095;
@@ -85,7 +85,7 @@ function App() {
         </div>
         <div id="carousel" className={`flex space-x-16 mb-3 h-64 w-full p-0 px-16`}>
         </div>
-        <div id="section2" className={`${cgpage ? "bg-emerald-100" : "bg-emerald-200"} transition-colors duration-2000 ease-in-out flex-grow w-full`}>
+        <div id="section2" className={`${cgpage ? "bg-emerald-100" : "bg-emerald-200"} transition-colors duration-1000 ease-in-out flex-grow w-full`}>
         </div>
       </main>
     </div>
